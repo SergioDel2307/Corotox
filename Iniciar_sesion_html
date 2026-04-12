@@ -1,0 +1,84 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corotox - Login</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container">
+
+    <div class="login-card">
+
+        <div class="logo">
+            <svg width="60" height="60" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+
+<polygon points="32,6 42,12 32,18 22,12" stroke="#374151" stroke-width="2" fill="none"/>
+<polygon points="22,12 22,24 32,30 32,18" stroke="#374151" stroke-width="2" fill="none"/>
+<polygon points="42,12 42,24 32,30 32,18" stroke="#374151" stroke-width="2" fill="none"/>
+
+<polygon points="14,28 24,34 14,40 4,34" stroke="#374151" stroke-width="2" fill="none"/>
+<polygon points="4,34 4,46 14,52 14,40" stroke="#374151" stroke-width="2" fill="none"/>
+<polygon points="24,34 24,46 14,52 14,40" stroke="#374151" stroke-width="2" fill="none"/>
+
+<polygon points="50,28 60,34 50,40 40,34" stroke="#374151" stroke-width="2" fill="none"/>
+<polygon points="40,34 40,46 50,52 50,40" stroke="#374151" stroke-width="2" fill="none"/>
+<polygon points="60,34 60,46 50,52 50,40" stroke="#374151" stroke-width="2" fill="none"/>
+
+</svg>
+
+<h2 class="titulo">Corotox</h2>
+
+        </div>
+      
+      <style>
+  :root {
+    --fondo-boxy: linear-gradient(135deg, #dce8f8 0%, #c5d9f0 25%, #b8d0ee 50%, #ccddf2 75%, #e0ecf9 100%);
+  }
+
+  body {
+    background: var(--fondo-boxy);
+  }
+</style>
+
+
+
+        <form id="loginForm">
+
+            <div class="input-group">
+<i class="fa-regular fa-user"></i>
+<input type="text" placeholder="Usuario" required>
+</div>
+
+<div class="input-group">
+<i class="fa-solid fa-lock"></i>
+<input type="password" placeholder="Contraseña" required>
+</div>
+
+
+            <button type="submit" class="btn-login">
+                Ingresar
+            </button>
+
+            <div class="links">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <a href="#">¿No tienes cuenta? Regístrate</a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

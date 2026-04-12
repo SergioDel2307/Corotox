@@ -6,3 +6,32 @@ alert("Login en desarrollo");
 
 });
 
+
+document.querySelector("form").addEventListener("submit", function(){
+
+console.log("Intentando iniciar sesión");
+
+});
+
+
+document.querySelector("form").addEventListener("submit", function(e){
+
+let usuario = document.querySelector("input[name='usuario']").value;
+let password = document.querySelector("input[name='password']").value;
+
+let patron = /^[a-zA-Z0-9@._-]+$/;
+
+if(!patron.test(usuario)){
+alert("Usuario contiene caracteres no permitidos");
+e.preventDefault();
+return;
+}
+
+if(!patron.test(password)){
+alert("Contraseña contiene caracteres no permitidos");
+e.preventDefault();
+return;
+}
+
+});
+

@@ -1,0 +1,47 @@
+(function(){
+emailjs.init("ZHHADFrictsXsgfG8");
+})();
+
+document.getElementById("recuperarForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let correo = document.getElementById("correo").value;
+let mensaje = document.getElementById("mensaje");
+
+let codigo = Math.floor(100000 + Math.random() * 900000);
+
+localStorage.setItem("codigoRecuperacion", codigo);
+localStorage.setItem("correoRecuperacion", correo);
+
+let templateParams = {
+
+to_email: correo,
+codigo: codigo,
+empresa: "Corotox"
+
+};
+
+emailjs.send("service_zvx3278","template_jestx78",templateParams)
+
+.then(function(){
+
+mensaje.style.color="green";
+mensaje.textContent="Código enviado al correo";
+
+setTimeout(()=>{
+
+window.location.href="codigo.html";
+
+},1500);
+
+})
+
+.catch(function(error){
+
+mensaje.style.color="red";
+mensaje.textContent="Error enviando correo";
+
+});
+
+});

@@ -1,0 +1,29 @@
+document.getElementById("codigoForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let codigoIngresado = document.getElementById("codigo").value;
+let codigoGuardado = localStorage.getItem("codigoRecuperacion");
+
+let mensaje = document.getElementById("mensaje");
+
+if(codigoIngresado === codigoGuardado){
+
+mensaje.style.color="green";
+mensaje.textContent="Código correcto";
+
+setTimeout(()=>{
+
+window.location.href="cambiar.html";
+
+},1500);
+
+}else{
+
+mensaje.style.color="red";
+mensaje.textContent="Código incorrecto";
+
+}
+
+});
+

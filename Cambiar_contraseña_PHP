@@ -25,3 +25,29 @@ echo "Error";
 }
 
 ?>
+
+
+<?php
+
+include("conexion.php");
+
+$codigo = $_POST['codigo'];
+
+$sql = "SELECT * FROM usuarios 
+WHERE codigo_recuperacion='$codigo'
+AND fecha_codigo >= NOW() - INTERVAL 5 MINUTE";
+
+$result = $conn->query($sql);
+
+if($result->num_rows > 0){
+
+header("Location: cambiar.html");
+
+}else{
+
+echo "Código inválido o expirado";
+
+}
+
+?>
+

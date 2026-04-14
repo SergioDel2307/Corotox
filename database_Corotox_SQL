@@ -11,3 +11,25 @@ fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
 INSERT INTO usuarios (usuario, password)
 VALUES ('admin', SHA2('123456', 256));
+
+
+CREATE TABLE usuarios (
+
+id INT AUTO_INCREMENT PRIMARY KEY,
+
+nombres VARCHAR(100),
+apellidos VARCHAR(100),
+cedula VARCHAR(20) UNIQUE,
+direccion VARCHAR(150),
+telefono VARCHAR(20),
+
+usuario VARCHAR(50) UNIQUE,
+correo VARCHAR(100) UNIQUE,
+password VARCHAR(255),
+
+rol ENUM('admin','usuario') DEFAULT 'usuario',
+
+codigo_recuperacion VARCHAR(10),
+fecha_codigo TIMESTAMP
+
+);

@@ -1,0 +1,27 @@
+<?php
+
+include("conexion.php");
+
+$password = $_POST['password'];
+
+/* Encriptar contraseña */
+
+$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+
+$sql = "UPDATE usuarios 
+SET password='$passwordHash',
+codigo_recuperacion=NULL
+WHERE codigo_recuperacion IS NOT NULL";
+
+if($conn->query($sql)){
+
+echo "Contraseña cambiada correctamente";
+
+}else{
+
+echo "Error";
+
+}
+
+?>

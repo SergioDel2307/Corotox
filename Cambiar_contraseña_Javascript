@@ -1,0 +1,37 @@
+document.getElementById("passwordForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let pass = document.getElementById("password").value;
+let confirmar = document.getElementById("confirmar").value;
+
+let mensaje = document.getElementById("mensaje");
+
+if(pass.length < 6){
+
+mensaje.style.color="red";
+mensaje.textContent="Mínimo 6 caracteres";
+
+return;
+
+}
+
+if(pass !== confirmar){
+
+mensaje.style.color="red";
+mensaje.textContent="Las contraseñas no coinciden";
+
+return;
+
+}
+
+mensaje.style.color="green";
+mensaje.textContent="Contraseña cambiada correctamente";
+
+setTimeout(()=>{
+
+window.location.href="index.html";
+
+},1500);
+
+});

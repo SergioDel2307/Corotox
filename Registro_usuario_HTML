@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Usuario</title>
+
+<style>
+
+:root {
+--fondo-boxy: linear-gradient(135deg, #dce8f8 0%, #c5d9f0 25%, #b8d0ee 50%, #ccddf2 75%, #e0ecf9 100%);
+}
+
+body {
+background: var(--fondo-boxy);
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+width: 600px;
+margin: 40px auto;
+background: white;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+h2{
+background:#e6e6e6;
+padding:10px;
+}
+
+input, select{
+width:100%;
+padding:8px;
+margin-bottom:10px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#4CAF50;
+color:white;
+border:none;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#2e8b57;
+transform:scale(1.02);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Registrar Usuario</h2>
+
+<form id="formRegistro">
+
+<label>Nombres</label>
+<input type="text" name="nombres" required>
+
+<label>Apellidos</label>
+<input type="text" name="apellidos">
+
+<label>Cédula</label>
+<input type="text" name="cedula">
+
+<label>Dirección</label>
+<input type="text" name="direccion">
+
+<label>Teléfono</label>
+<input type="text" name="telefono">
+
+<label>Usuario</label>
+<input type="text" name="usuario" id="usuario">
+
+<label>Correo</label>
+<input type="email" name="correo" value="123456@correo.com">
+
+<label>Contraseña</label>
+<input type="text" name="password" value="123456">
+
+<label>Rol</label>
+<select name="rol">
+<option value="usuario" selected>Usuario</option>
+<option value="administrador">Administrador</option>
+</select>
+
+<button type="submit">Registrar Usuario</button>
+
+</form>
+
+</div>
+
+<script src="registrar.js"></script>
+
+</body>
+</html>

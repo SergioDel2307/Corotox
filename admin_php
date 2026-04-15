@@ -1,0 +1,18 @@
+<?php
+
+include("conexion.php");
+
+$usuario = "admin";
+$password = "Admin123*";
+
+$password_segura = password_hash($password, PASSWORD_DEFAULT);
+
+$sql = "INSERT INTO usuarios (usuario, password) VALUES (?, ?)";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $usuario, $password_segura);
+$stmt->execute();
+
+echo "Usuario administrador creado correctamente";
+
+?>

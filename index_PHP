@@ -1,71 +1,4 @@
 <?php
-
-include("conexion.php");
-
-$usuario = "admin";
-$password = "Admin123*";
-
-$password_segura = password_hash($password, PASSWORD_DEFAULT);
-
-$sql = "INSERT INTO usuarios (usuario, password) 
-VALUES (?, ?)";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $usuario, $password_segura);
-$stmt->execute();
-
-echo "Usuario creado correctamente";
-
-?>
-
-<?php
-
-session_start();
-include("conexion.php");
-
-$usuario = $_POST['usuario'];
-$password = $_POST['password'];
-
-$sql = "SELECT * FROM usuarios WHERE usuario = ?";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $usuario);
-$stmt->execute();
-
-$resultado = $stmt->get_result();
-
-if($resultado->num_rows > 0){
-
-$datos = $resultado->fetch_assoc();
-
-if(password_verify($password, $datos['password'])){
-
-session_regenerate_id(true);
-$_SESSION['usuario'] = $usuario;
-
-header("Location: dashboard.php");
-
-}else{
-
-echo "<script>
-alert('Contraseña incorrecta');
-window.location='index.html';
-</script>";
-
-}
-
-}else{
-
-echo "<script>
-alert('Usuario no existe');
-window.location='index.html';
-</script>";
-
-}
-
-?>
-
-<?php
 session_start();
 
 if(isset($_SESSION['usuario'])){
@@ -97,7 +30,6 @@ header("Location: dashboard.php");
 
 <div class="logo">
 
-<!-- SVG cajas -->
 <svg width="60" height="60" viewBox="0 0 64 64" fill="none">
 <polygon points="32,6 42,12 32,18 22,12" stroke="#374151" stroke-width="2"/>
 <polygon points="22,12 22,24 32,30 32,18" stroke="#374151" stroke-width="2"/>
@@ -108,7 +40,7 @@ header("Location: dashboard.php");
 
 </div>
 
-<form action="index.php" method="POST">
+<form action="login.php" method="POST">
 
 <div class="input-group">
 <i class="fa-regular fa-user"></i>
@@ -140,110 +72,3 @@ Ingresar
 </body>
 
 </html>
-
-
-<?php
-
-$host = "localhost";
-$usuario = "root";
-$password = "";
-$bd = "corotox";
-
-$conn = new mysqli($host, $usuario, $password, $bd);
-
-if($conn->connect_error){
-die("Error de conexión");
-}
-
-?>
-
-<?php
-
-session_start();
-include("conexion.php");
-
-$usuario = $_POST['usuario'];
-$password = $_POST['password'];
-
-$sql = "SELECT * FROM usuarios WHERE usuario = ?";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $usuario);
-$stmt->execute();
-
-$resultado = $stmt->get_result();
-
-if($resultado->num_rows > 0){
-
-$datos = $resultado->fetch_assoc();
-
-if(password_verify($password, $datos['password'])){
-
-session_regenerate_id(true);
-
-$_SESSION['usuario'] = $usuario;
-
-header("Location: dashboard.php");
-
-}else{
-
-echo "<script>
-alert('Contraseña incorrecta');
-window.location='index.php';
-</script>";
-
-}
-
-}else{
-
-echo "<script>
-alert('Usuario no existe');
-window.location='index.php';
-</script>";
-
-}
-
-?>
-
-
-<?php
-
-session_start();
-
-if(!isset($_SESSION['usuario'])){
-header("Location: index.php");
-}
-
-?>
-
-<!DOCTYPE html>
-
-<html>
-
-<head>
-<title>Dashboard</title>
-</head>
-
-<body>
-
-<h1>Bienvenido a Corotox</h1>
-
-<p>Usuario: <?php echo $_SESSION['usuario']; ?></p>
-
-<a href="logout.php">Cerrar sesión</a>
-
-</body>
-
-</html>
-
-
-<?php
-
-session_start();
-session_destroy();
-
-header("Location: index.php");
-
-?>
-
-

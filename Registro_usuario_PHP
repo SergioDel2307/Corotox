@@ -1,0 +1,32 @@
+<?php
+
+include("conexion.php");
+
+$nombres = $_POST['nombres'];
+$apellidos = $_POST['apellidos'];
+$cedula = $_POST['cedula'];
+$direccion = $_POST['direccion'];
+$telefono = $_POST['telefono'];
+$usuario = $_POST['usuario'];
+$correo = $_POST['correo'];
+$password = hash('sha256', $_POST['password']);
+$rol = $_POST['rol'];
+
+$sql = "INSERT INTO usuarios 
+(nombres,apellidos,cedula,direccion,telefono,usuario,correo,password,rol)
+
+VALUES
+('$nombres','$apellidos','$cedula','$direccion','$telefono','$usuario','$correo','$password','$rol')";
+
+
+if(mysqli_query($conexion,$sql)){
+
+echo "Usuario registrado correctamente";
+
+}else{
+
+echo "Error al registrar usuario";
+
+}
+
+?>

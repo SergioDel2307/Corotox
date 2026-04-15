@@ -1,0 +1,29 @@
+document.querySelector("input[name='nombres']").addEventListener("input", function(){
+
+let nombre = this.value.split(" ")[0];
+
+document.getElementById("usuario").value = nombre.toLowerCase();
+
+});
+
+
+
+document.getElementById("formRegistro").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let datos = new FormData(this);
+
+fetch("registrar_usuario.php",{
+method:"POST",
+body:datos
+})
+.then(res=>res.text())
+.then(data=>{
+
+alert(data);
+location.reload();
+
+})
+
+});

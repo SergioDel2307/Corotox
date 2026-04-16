@@ -93,7 +93,7 @@ transform:scale(1.02);
 <option value="administrador">Administrador</option>
 </select>
 
-<button type="submit">Registrar Usuario</button>
+<button type="submit">Guardar</button>
 
 </form>
 

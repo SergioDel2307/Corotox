@@ -29,3 +29,18 @@ INSERT INTO usuarios (usuario, password)
 VALUES ('admin', SHA2('123456', 256));
 
 
+CREATE TABLE articulos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    categoria VARCHAR(50),
+    marca VARCHAR(100),
+    referencia VARCHAR(100),
+    nivel_rotacion VARCHAR(20),
+    codigo VARCHAR(50),
+    stock_minimo INT DEFAULT 1,
+    stock_maximo INT DEFAULT 5,
+    ubicacion VARCHAR(100) DEFAULT '-',
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE articulos 
+ADD cantidades_actuales INT DEFAULT 0;

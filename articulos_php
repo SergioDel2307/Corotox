@@ -1,0 +1,29 @@
+<?php
+
+include("conexion.php");
+
+$categoria = $_POST['categoria'];
+$marca = $_POST['marca'];
+$referencia = $_POST['referencia'];
+$nivel_rotacion = $_POST['nivel_rotacion'];
+$codigo = $_POST['codigo'];
+$stock_minimo = $_POST['stock_minimo'];
+$stock_maximo = $_POST['stock_maximo'];
+$ubicacion = $_POST['ubicacion'];
+
+if($categoria != "" && $nivel_rotacion != ""){
+
+$sql = "INSERT INTO articulos
+(categoria,marca,referencia,nivel_rotacion,codigo,stock_minimo,stock_maximo,ubicacion)
+VALUES
+('$categoria','$marca','$referencia','$nivel_rotacion','$codigo','$stock_minimo','$stock_maximo','$ubicacion')";
+
+if($conn->query($sql) === TRUE){
+    echo "Registro guardado";
+}else{
+    echo "Error: " . $conn->error;
+}
+
+}
+
+?>

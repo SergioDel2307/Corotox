@@ -1,0 +1,22 @@
+<?php
+
+include("conexion.php");
+
+$id = $_POST['id'];
+$nivel_rotacion = $_POST['nivel_rotacion'];
+$stock_minimo = $_POST['stock_minimo'];
+$stock_maximo = $_POST['stock_maximo'];
+$ubicacion = $_POST['ubicacion'];
+
+$sql = "UPDATE articulos SET
+nivel_rotacion='$nivel_rotacion',
+stock_minimo='$stock_minimo',
+stock_maximo='$stock_maximo',
+ubicacion='$ubicacion'
+WHERE id='$id'";
+
+$conn->query($sql);
+
+header("Location: editar_articulos.php");
+
+?>

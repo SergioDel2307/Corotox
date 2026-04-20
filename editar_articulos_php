@@ -1,0 +1,79 @@
+<?php
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editar Artículos</title>
+<link rel="stylesheet" href="estilos_editar.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="titulo">
+Editar Artículos
+</div>
+
+<table>
+<tr>
+<th>Categoría</th>
+<th>Marca</th>
+<th>Referencia</th>
+<th>Nivel Rotación</th>
+<th>Stock Mínimo</th>
+<th>Stock Máximo</th>
+<th>Ubicación</th>
+<th>Acción</th>
+</tr>
+
+<?php while($fila = $resultado->fetch_assoc()){ ?>
+
+<tr>
+<form action="actualizar_articulo.php" method="POST">
+
+<td>
+<?php echo $fila['categoria']; ?>
+</td>
+
+<td>
+<?php echo $fila['marca']; ?>
+</td>
+
+<td>
+<?php echo $fila['referencia']; ?>
+</td>
+
+<td>
+<select name="nivel_rotacion">
+<option <?php if($fila['nivel_rotacion']=='Alta') echo 'selected';?>>Alta</option>
+<option <?php if($fila['nivel_rotacion']=='Media') echo 'selected';?>>Media</option>
+<option <?php if($fila['nivel_rotacion']=='Baja') echo 'selected';?>>Baja</option>
+</select>
+</td>
+
+<td>
+<input type="number" name="stock_minimo" value="<?php echo $fila['stock_minimo']; ?>">
+</td>
+
+<td>
+<input type="number" name="stock_maximo" value="<?php echo $fila['stock_maximo']; ?>">
+</td>
+
+<td>
+<input type="text" name="ubicacion" value="<?php echo $fila['ubicacion']; ?>">
+</td>
+
+<td>
+<input type="hidden" name="id" value="<?php echo $fila['id']; ?>">
+<button type="submit">Guardar</button>
+</td>
+
+</form>
+</tr>
+
+<?php } ?>
+
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<?php
+<title>Artículos</title>
+
+<link rel="stylesheet" href="estilos_articulos.css">
+
+</head>
+<body>
+
+<div class="contenedor">
+
+<div class="titulo">
+Artículos
+</div>
+
+<div class="busqueda">
+<input type="text" id="buscar" placeholder="Buscar por Código o Referencia">
+</div>
+
+<table id="tabla">
+
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Marca</th>
+<th>Referencia</th>
+<th>Nivel de Rotación</th>
+<th>Código</th>
+<th>Stock Mínimo</th>
+<th>Stock Máximo</th>
+<th>Ubicación</th>
+<th>Cantidades Actuales</th>
+</tr>
+</thead>
+
+<tbody>
+
+<?php while($fila = $resultado->fetch_assoc()){ ?>
+
+<tr>
+<td><?php echo $fila['categoria']; ?></td>
+<td><?php echo $fila['marca']; ?></td>
+<td><?php echo $fila['referencia']; ?></td>
+<td><?php echo $fila['nivel_rotacion']; ?></td>
+<td><?php echo $fila['codigo']; ?></td>
+<td><?php echo $fila['stock_minimo']; ?></td>
+<td><?php echo $fila['stock_maximo']; ?></td>
+<td><?php echo $fila['ubicacion']; ?></td>
+<td><?php echo $fila['cantidades_actuales']; ?></td>
+</tr>
+
+<?php } ?>
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="busqueda.js"></script>
+
+</body>
+</html>

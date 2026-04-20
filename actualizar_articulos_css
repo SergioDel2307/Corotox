@@ -1,0 +1,59 @@
+:root {
+--fondo-boxy: linear-gradient(135deg, #dce8f8 0%, #c5d9f0 25%, #b8d0ee 50%, #ccddf2 75%, #e0ecf9 100%);
+}
+
+body{
+font-family: Arial;
+background: var(--fondo-boxy);
+padding:40px;
+}
+
+.contenedor{
+width:90%;
+margin:auto;
+background:white;
+border:1px solid #ccc;
+}
+
+.titulo{
+background:#e5e5e5;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+input,select{
+padding:5px;
+width:100%;
+}
+
+button{
+background:#1f6fa9;
+color:white;
+border:none;
+padding:6px 15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#155a8a;
+}
+
+input:hover{
+border:1px solid #1f6fa9;
+}
+
+select:hover{
+border:1px solid #1f6fa9;
+}

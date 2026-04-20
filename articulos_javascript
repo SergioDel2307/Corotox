@@ -1,0 +1,13 @@
+document.getElementById("formulario").addEventListener("submit", function(e){
+
+let categoria = document.querySelector("select[name='categoria']").value;
+let rotacion = document.querySelector("select[name='nivel_rotacion']").value;
+
+if(categoria === "" || rotacion === ""){
+
+alert("Debe escoger categoría y nivel de rotación");
+e.preventDefault();
+
+}
+
+});

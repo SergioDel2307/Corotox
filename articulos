@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Artículos</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+</head>
+<body>
+
+<div class="contenedor">
+
+<div class="titulo">
+Registro de Artículos
+</div>
+
+<form id="formulario" method="POST" action="guardar_articulo.php">
+
+<label>Categoría</label>
+<select name="categoria" required>
+<option value="">Escoja una opción</option>
+<option value="Máquina">Máquina</option>
+<option value="Artículo">Artículo</option>
+<option value="Servicio">Servicio</option>
+</select>
+
+<label>Marca</label>
+<input type="text" name="marca">
+
+<label>Referencia</label>
+<input type="text" name="referencia">
+
+<label>Nivel de Rotación</label>
+<select name="nivel_rotacion" required>
+<option value="">Escoja una opción</option>
+<option value="Alta">Alta</option>
+<option value="Media">Media</option>
+<option value="Baja">Baja</option>
+</select>
+
+<label>Código</label>
+<input type="text" name="codigo">
+
+<label>Stock Mínimo</label>
+<input type="number" name="stock_minimo" value="1">
+
+<label>Stock Máximo</label>
+<input type="number" name="stock_maximo" value="5">
+
+<label>Ubicación</label>
+<input type="text" name="ubicacion" value="-">
+
+
+<div class="boton-contenedor">
+<button type="submit">Guardar</button>
+</div>
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

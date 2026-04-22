@@ -1,4 +1,10 @@
 :root {
+--fondo-boxy: linear-gradient(135deg, #dce8f8 0%, #c5d9f0 25%, #b8d0ee 50%, #ccddf2 75%, #e0ecf9 100%);
+}
+
+body{
+
+font-family: Arial, Helvetica, sans-serif;
 background: var(--fondo-boxy);
 padding:40px;
 

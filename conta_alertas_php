@@ -1,0 +1,107 @@
+<?php
+include("conexion.php");
+
+/* Contador productos críticos */
+$criticos = 0;
+
+$sql_alerta = "SELECT * FROM articulos";
+$resultado_alerta = $conn->query($sql_alerta);
+
+while($fila_alerta = $resultado_alerta->fetch_assoc()){
+    if($fila_alerta['cantidades_actuales'] <= $fila_alerta['stock_minimo']){
+        $criticos++;
+    }
+}
+
+/* Ordenar por stock más bajo */
+$sql = "SELECT * FROM articulos ORDER BY cantidades_actuales ASC";
+$resultado = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artículos</title>
+<link rel="stylesheet" href="estilos_articulos.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="titulo">
+Artículos
+</div>
+
+<div class="alerta">
+⚠ Productos con Stock Bajo: <?php echo $criticos; ?>
+</div>
+
+<div class="busqueda">
+<input type="text" id="buscar" placeholder="Buscar por Código o Referencia">
+</div>
+
+<table id="tabla">
+
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Marca</th>
+<th>Referencia</th>
+<th>Nivel Rotación</th>
+<th>Código</th>
+<th>Stock Mínimo</th>
+<th>Stock Máximo</th>
+<th>Ubicación</th>
+<th>Cantidades Actuales</th>
+<th>Estado</th>
+</tr>
+</thead>
+
+<tbody>
+
+<?php while($fila = $resultado->fetch_assoc()){ 
+
+$stock_actual = $fila['cantidades_actuales'];
+$stock_minimo = $fila['stock_minimo'];
+
+$clase = "normal";
+$estado = "🟢 Stock Normal";
+
+if($stock_actual <= $stock_minimo){
+    $clase = "bajo";
+    $estado = "🔴 Stock Bajo";
+}
+elseif($stock_actual <= ($stock_minimo + 2)){
+    $clase = "medio";
+    $estado = "🟡 Stock Medio";
+}
+
+?>
+
+<tr class="<?php echo $clase; ?>">
+<td><?php echo $fila['categoria']; ?></td>
+<td><?php echo $fila['marca']; ?></td>
+<td><?php echo $fila['referencia']; ?></td>
+<td><?php echo $fila['nivel_rotacion']; ?></td>
+<td><?php echo $fila['codigo']; ?></td>
+<td><?php echo $fila['stock_minimo']; ?></td>
+<td><?php echo $fila['stock_maximo']; ?></td>
+<td><?php echo $fila['ubicacion']; ?></td>
+<td><?php echo $fila['cantidades_actuales']; ?></td>
+<td><?php echo $estado; ?></td>
+</tr>
+
+<?php } ?>
+
+</tbody>
+</table>
+
+</div>
+
+<script src="busqueda.js"></script>
+
+</body>
+</html>

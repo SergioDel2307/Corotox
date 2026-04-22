@@ -1,0 +1,19 @@
+document.getElementById("buscar").addEventListener("keyup", function(){
+
+let filtro = this.value.toLowerCase();
+let filas = document.querySelectorAll("#tabla tbody tr");
+
+filas.forEach(function(fila){
+
+let codigo = fila.children[4].textContent.toLowerCase();
+let referencia = fila.children[2].textContent.toLowerCase();
+
+if(codigo.includes(filtro) || referencia.includes(filtro)){
+fila.style.display = "";
+}else{
+fila.style.display = "none";
+}
+
+});
+
+});

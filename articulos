@@ -13,16 +13,16 @@
 <div class="contenedor">
 
 <div class="titulo">
-Registro de Artículos
+Registro de Articulos
 </div>
 
 <form id="formulario" method="POST" action="guardar_articulo.php">
 
-<label>Categoría</label>
+<label>Categoria</label>
 <select name="categoria" required>
-<option value="">Escoja una opción</option>
-<option value="Máquina">Máquina</option>
-<option value="Artículo">Artículo</option>
+<option value="">Escoja una opcion</option>
+<option value="Maquina">Maquina</option>
+<option value="Articulo">Artículo</option>
 <option value="Servicio">Servicio</option>
 </select>
 
@@ -32,9 +32,9 @@ Registro de Artículos
 <label>Referencia</label>
 <input type="text" name="referencia">
 
-<label>Nivel de Rotación</label>
+<label>Nivel de Rotacion</label>
 <select name="nivel_rotacion" required>
-<option value="">Escoja una opción</option>
+<option value="">Escoja una opcion</option>
 <option value="Alta">Alta</option>
 <option value="Media">Media</option>
 <option value="Baja">Baja</option>
@@ -43,13 +43,13 @@ Registro de Artículos
 <label>Código</label>
 <input type="text" name="codigo">
 
-<label>Stock Mínimo</label>
+<label>Stock Minimo</label>
 <input type="number" name="stock_minimo" value="1">
 
-<label>Stock Máximo</label>
+<label>Stock Maximo</label>
 <input type="number" name="stock_maximo" value="5">
 
-<label>Ubicación</label>
+<label>Ubicacion</label>
 <input type="text" name="ubicacion" value="-">
 
 

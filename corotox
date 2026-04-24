@@ -31,11 +31,11 @@ VALUES ('admin', SHA2('123456', 256));
 
 CREATE TABLE articulos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    categoria VARCHAR(50),
+    categoria ENUM('Escoja una opcion','Maquina','Articulo','Servicio') DEFAULT 'Escoja una opcion',
     marca VARCHAR(100),
     referencia VARCHAR(100),
-    nivel_rotacion VARCHAR(20),
-    codigo VARCHAR(50),
+    nivel_rotacion ENUM('Escoja una opcion','Alta','Media','Baja') DEFAULT 'Escoja una opcion',
+    codigo VARCHAR(50) UNIQUE,
     stock_minimo INT DEFAULT 1,
     stock_maximo INT DEFAULT 5,
     ubicacion VARCHAR(100) DEFAULT '-',

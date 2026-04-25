@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corotox - Login</title>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="index.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -36,7 +36,19 @@
 
 <h2 class="titulo">Corotox</h2>
 
+
+<div class="input-group">
+<i class="fa-regular fa-user"></i>
+<input type="text" placeholder="Usuario" required>
+</div>
+
+<div class="input-group">
+<i class="fa-solid fa-lock"></i>
+<input type="password" placeholder="Contraseña" required>
+</div>
+
         </div>
+
       
       <style>
   :root {
@@ -52,15 +64,7 @@
 
         <form id="loginForm">
 
-            <div class="input-group">
-<i class="fa-regular fa-user"></i>
-<input type="text" placeholder="Usuario" required>
-</div>
-
-<div class="input-group">
-<i class="fa-solid fa-lock"></i>
-<input type="password" placeholder="Contraseña" required>
-</div>
+            
 
 
             <button type="submit" class="btn-login">
@@ -78,7 +82,7 @@
 
 </div>
 
-<script src="script.js"></script>
+<script src="index.js"></script>
 
 </body>
 </html>
